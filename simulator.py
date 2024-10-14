@@ -10,9 +10,9 @@ class Simulator:
         """
         print("------------------------------------------------------------")
         print("Right Bank                                         Left Bank")
-        print(f"|# of Missionaries|{3 - self.state[0]}|                 |# of Missionaries| {self.state[0]}|")
-        print(f"|# of Cannibals   |{3 - self.state[1]}|                 |# of Cannibals   | {self.state[1]}|")
-        print(f"|# of Boat        |{1 - self.state[2]}|                 |# of Boat        | {self.state[2]}|")
+        print(f"|# of Missionaries|{3 - self.state[0]}|                  |# of Missionaries|{self.state[0]}|")
+        print(f"|# of Cannibals   |{3 - self.state[1]}|                  |# of Cannibals   |{self.state[1]}|")
+        print(f"|# of Boat        |{1 - self.state[2]}|                  |# of Boat        |{self.state[2]}|")
         print("------------------------------------------------------------")
 
     def is_valid_state(self, state):

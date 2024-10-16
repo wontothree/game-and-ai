@@ -1,8 +1,8 @@
 class Simulator:
     def __init__(self):
-        self.state = [3, 3, 1]  # State: [number of missionaries on the right bank, number of cannibals on the right bank, boat position]
+        # State: [number of missionaries on the right bank, number of cannibals on the right bank, boat position]
+        self.state = [3, 3, 1]
         self.goal_state = [0, 0, 0]
-        self.print_current_state()
 
     def print_current_state(self):
         """
@@ -25,16 +25,15 @@ class Simulator:
 
         if (right_missionaries < 0 or right_missionaries > 3 or 
             left_missionaries < 0 or left_cannibals < 0 or left_cannibals > 3):
-            return False
+            return False # failure
         
-        return True
+        return True # success
 
     def is_valid_action(self, missionary, cannibal):
         """
         Check if the action is valid
         """
         if missionary + cannibal > 2 or missionary + cannibal < 1:
-            print("You can move at least 1 and at most 2 people at a time.")
             return False
         return True
     
@@ -77,7 +76,7 @@ class Simulator:
             elif self.is_failure():
                 return True  # End in failure
         else:
-            print("The action is invalid. State remains unchanged.")
+            print("You can move at least 1 and at most 2 people at a time. The action is invalid. State remains unchanged.")
         return False
 
     def play(self):
@@ -85,6 +84,8 @@ class Simulator:
         Main loop to execute the game
         """
         print("The game is starting! Move all missionaries and cannibals safely to the other side of the river.")
+        self.print_current_state()
+
         while True:
             try:
                 missionary = int(input("Enter the number of missionaries to move: "))
@@ -101,6 +102,6 @@ class Simulator:
         else:
             print("Game failure! Cannibals have eaten the missionaries.")
 
-# Run the simulator
-simulator = Simulator()
-simulator.play()
+if __name__ == '__main__':
+    simulator = Simulator()
+    simulator.play()

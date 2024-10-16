@@ -10,7 +10,6 @@ Right Bank                                         Left Bank
 The game is starting! Move all missionaries and cannibals safely to the other side of the river.
 Enter the number of missionaries to move: 1
 Enter the number of cannibals to move: 1
-
 ...
 
 ------------------------------------------------------------

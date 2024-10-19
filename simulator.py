@@ -4,38 +4,37 @@ class Simulator:
         self.state = [3, 3, 1]
         self.goal_state = [0, 0, 0]
 
+        self.right_missionaries = self.state[0]
+        self.right_cannibals = self.state[1]
+        self.right_boat = self.state[2]
+        self.left_missionaries = 3 - self.right_missionaries
+        self.left_cannibals = 3 - self.right_cannibals
+        self.left_boat = 1 - self.state[2]
+
     def print_current_state(self):
         """
         Print the current state
         """
         print("------------------------------------------------------------")
         print("Right Bank                                         Left Bank")
-        print(f"|# of Missionaries|{3 - self.state[0]}|                  |# of Missionaries|{self.state[0]}|")
-        print(f"|# of Cannibals   |{3 - self.state[1]}|                  |# of Cannibals   |{self.state[1]}|")
-        print(f"|# of Boat        |{1 - self.state[2]}|                  |# of Boat        |{self.state[2]}|")
+        print(f"|# of Missionaries|{self.left_missionaries}|                  |# of Missionaries|{self.right_missionaries}|")
+        print(f"|# of Cannibals   |{self.left_cannibals}|                  |# of Cannibals   |{self.right_cannibals}|")
+        print(f"|# of Boat        |{self.left_boat}|                  |# of Boat        |{self.right_boat}|")
         print("------------------------------------------------------------")
 
     def is_valid_state(self, state):
         """
         Check if the state is valid
         """
-        right_missionaries, right_cannibals, _ = state
-        left_missionaries = 3 - right_missionaries
-        left_cannibals = 3 - right_cannibals
 
-        if (right_missionaries < 0 or right_missionaries > 3 or 
-            left_missionaries < 0 or left_cannibals < 0 or left_cannibals > 3):
-            return False # failure
-        
-        return True # success
+        return (0 <= self.right_missionaries <= 3 and 0 <= self.right_cannibals <= 3 and
+                0 <= self.left_missionaries <= 3 and 0 <= self.left_cannibals <= 3)
 
     def is_valid_action(self, missionary, cannibal):
         """
         Check if the action is valid
         """
-        if missionary + cannibal > 2 or missionary + cannibal < 1:
-            return False
-        return True
+        return 1 <= missionary + cannibal <= 2
     
     def is_success(self):
         """
@@ -47,16 +46,8 @@ class Simulator:
         """
         Check if the game has failed
         """
-        right_missionaries, right_cannibals, _ = self.state
-        left_missionaries = 3 - right_missionaries
-        left_cannibals = 3 - right_cannibals
 
-        if right_missionaries > 0 and right_missionaries < right_cannibals:
-            return True
-        if left_missionaries > 0 and left_missionaries < left_cannibals:
-            return True
-        
-        return False
+        return (0 < self.right_cannibals < self.right_missionaries) or (0 < self.left_cannibals < self.left_missionaries)
 
     def act(self, missionary, cannibal):
         """

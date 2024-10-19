@@ -96,4 +96,17 @@ class Simulator:
 
                 if self.state[2] == 1:
                     boat = 1
-                    print("The number of boat to move in
+                    print("The number of boat to move in right bank: 1")
+                elif self.state[2] == 0:
+                    boat = 0
+                    print("The number of boat in left bank: 1")
+                
+                action = [missionary, cannibal, boat]
+                self.act(action)
+            
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+
+if __name__ == '__main__':
+    simulator = Simulator()
+    simulator.play()

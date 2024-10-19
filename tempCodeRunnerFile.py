@@ -1,1 +1,1 @@
-cannibal
+        print("\n")

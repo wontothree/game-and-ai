@@ -1,5 +1,5 @@
 from collections import deque
-from simulator import Simulator
+from missionaries_and_cannibals_simulator import Simulator
 
 class BFS:
     def __init__(self):
@@ -19,7 +19,7 @@ class BFS:
         for missionary in range(0, 3):  # 0 to 2 missionaries
             for cannibal in range(0, 3):  # 0 to 2 cannibals
                 # is valid action
-                if self.simulator.is_valid_action(missionary, cannibal):
+                if self.simulator.is_valid_action([missionary, cannibal, boat_position]):
                     if boat_position == 1:  # Boat is on the right bank
                         new_state = [right_missionaries - missionary, right_cannibals - cannibal, 0]
                     else:  # Boat is on the left bank
@@ -61,5 +61,4 @@ if __name__ == '__main__':
         print("Solution found!")
         for step in solution:
             print(step)
-    else:
-        print("No solution found.")
+  

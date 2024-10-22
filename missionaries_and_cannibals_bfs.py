@@ -61,4 +61,5 @@ if __name__ == '__main__':
         print("Solution found!")
         for step in solution:
             print(step)
-  
+    else:
+        print("No solution found.")

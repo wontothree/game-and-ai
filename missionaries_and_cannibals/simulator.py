@@ -108,5 +108,5 @@ class Simulator:
                 print("Invalid input. Please enter a number.")
 
 if __name__ == '__main__':
-    simulator = Simulator()
-    simulator.play()
+    sim = Simulator()
+    sim.play()

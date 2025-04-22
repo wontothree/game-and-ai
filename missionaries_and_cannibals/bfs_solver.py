@@ -1,7 +1,7 @@
 from collections import deque
-from missionaries_and_cannibals_simulator import Simulator
+from simulator import Simulator
 
-class BFS:
+class Solver:
     def __init__(self):
         self.simulator = Simulator()
         self.initial_state = self.simulator.state[:]
@@ -54,7 +54,7 @@ class BFS:
         return None  # No solution found
 
 if __name__ == '__main__':
-    bfs = BFS()
+    bfs = Solver()
     solution = bfs.bfs_search()
 
     if solution is not None:

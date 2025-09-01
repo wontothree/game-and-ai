@@ -14,7 +14,7 @@ def inflate_walls(map_str):
 
     for y in range(h):
         for x in range(w):
-            if grid[y][x] == "#":
+            if grid[y][x] == "#" or grid[y][x] == 'X':
                 for dy, dx in directions:
                     ny, nx = y + dy, x + dx
                     if 0 <= ny < h and 0 <= nx < w:
@@ -26,4 +26,4 @@ def inflate_walls(map_str):
 
 
 # 예시 실행
-print(inflate_walls(map3))
+print(inflate_walls(map1))

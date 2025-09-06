@@ -3,7 +3,7 @@
 - A*
 - Hybrid A*
 
-Grid Size : 0.2 m
+Grid Size (Resolution): 0.2 m
 
 ## Map 0 (30 x 40)
 
